@@ -35,6 +35,9 @@ gem 'devise'
 gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
+gem 'gon'
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'

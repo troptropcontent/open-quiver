@@ -3,4 +3,5 @@ class Board < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   validates :category, :inclusion=> { in: CATEGORY}
+  has_many :reservations
 end
