@@ -2,40 +2,44 @@ class BoardsController < ApplicationController
   def index
     @boards = policy_scope(Board).order(created_at: :desc)
   end
+
+  def show
+    @board = Board.find(params[:id])
+  end
   
   def new
-    @boards = Board.new
+    @board = Board.new
   end
 
   def create
-    @boards = Board.new(board_params)
-    if @boards.save
-      redirect_to board_path(@boards)
+    @board = Board.new(board_params)
+    if @board.save
+      redirect_to board_path(@board)
     else
       render 'new'
     end
   end
 
   def edit
-    @boards = Board.find(params[:id])
+    @board = Board.find(params[:id])
   end
 
   def update
-    @boards = Board.find(params[:id])
-    @boards.update(params[:board])
-    redirect_to board_path(@boards)
+    @board = Board.find(params[:id])
+    @board.update(board_params)
+    redirect_to board_path(@board)
   end
 
   def destroy
-    @boards = Board.find(params[:id])
-    @boards.destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to boards_path
   end
 
-  def show
-    @boards = Board.find(params[:id])
-  end
+  private
 
   def board_params
-    params.require(:boards).permit(:name)
+    params.require(:board).permit(:name, :brand, :length, :thickness, :width, :volume, :price,
+    :longitude, :latitude, :status)
   end
 end
