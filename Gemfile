@@ -35,6 +35,7 @@ gem 'devise'
 gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
+gem 'gon'
 
 group :development, :test do
   gem 'pry-byebug'
