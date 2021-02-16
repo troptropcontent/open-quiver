@@ -10,6 +10,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'faker'
 
+puts " SEEDING ...................."
 
 def scrap_board_from_akewatu(start_page, end_page)
 
@@ -53,7 +54,7 @@ end
 
 # spot de surf
 def random_spot
-  file      = File.open('/Users/raphaelvilaseca/code/troptropcontent/open-quiver/db/CARTE SPOTS SURF & SUP FRANCE.xml')
+  file      = File.open("#{pwd}/db/CARTE SPOTS SURF & SUP FRANCE.xml")
   document  = Nokogiri::XML(file)
   spots = []
   spots_list = document.root.xpath('Placemark')
@@ -112,3 +113,4 @@ end
 # pour chaque planche creer un user
   # sauvegarder l'user
   #  sauvegarder la planche
+  puts "Done SEEDING"
