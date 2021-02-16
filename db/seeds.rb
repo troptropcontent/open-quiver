@@ -25,13 +25,18 @@ def scrap_board_from_akewatu(start_page, end_page)
     image = card.search('.js-slider__ div')
     # [/https.*?jpeg/]
     if title.count == 1 && spec.count == 1
+      url = "https://www.akewatu.fr#{card.search('a').attribute('href').text}"
+      html_file = open(url).read
+      html_doc = Nokogiri::HTML(html_file)
+      board_category = html_doc.search('.u-w-5of12-at-md').search('dl').search('dd')[0].text.strip
       boards << {
       name: title[0].text.strip,
       length: spec.search('span')[0].text.strip,
       width: spec.search('span')[1].text.strip[1..-1],
       thickness: spec.search('span')[2].text.strip[1..-1],
       volume: spec.search('span')[3].text.strip,
-      image: image.attribute('style').text.match(/https.*.+?(?=')/)[0]
+      image: image.attribute('style').text.match(/https.*.+?(?=')/)[0],
+      category: board_category.downcase,
       }
       # puts title[0].text.strip
       # puts "length: #{spec.search('span')[0].text.strip}"
@@ -95,6 +100,7 @@ boards.each do |board|
   longitude: spot[:longitude],
   latitude: spot[:latitude],
   status: board_status,
+  category: board[:category],
   )
   file = URI.open(board[:image])
   new_board.photo.attach(io: file, filename: "#{Faker::Internet.password}.png", content_type: 'image/png')
