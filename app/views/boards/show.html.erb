@@ -1,0 +1,31 @@
+<div class="banner">
+  <div class="container">
+
+  <h1><%= @board.name %></h1>
+  <%= link_to "Back to all bords", root_path %>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <% @boards.each do |board| %>
+        <tr>
+          <td><%= board.name %></td>
+          <td><%= board.description %></td>
+          <td>
+              <%= link_to board_path(board), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash destroy_board"></i>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+</div>
