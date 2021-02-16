@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_160505) do
+ActiveRecord::Schema.define(version: 2021_02_15_224501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,16 +39,18 @@ ActiveRecord::Schema.define(version: 2021_02_15_160505) do
   create_table "boards", force: :cascade do |t|
     t.string "brand"
     t.string "name"
-    t.float "length"
-    t.float "thickness"
-    t.float "width"
-    t.float "volume"
+    t.string "length"
+    t.string "thickness"
+    t.string "width"
+    t.string "volume"
     t.float "price"
     t.float "longitude"
     t.float "latitude"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_160505) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "boards", "users"
   add_foreign_key "reservations", "boards"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "reservations"
