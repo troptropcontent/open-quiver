@@ -53,6 +53,9 @@ end
 # user.save!
 
 # spot de surf
+
+
+
 def random_spot
   file      = File.open("#{pwd}/db/CARTE SPOTS SURF & SUP FRANCE.xml")
   document  = Nokogiri::XML(file)
