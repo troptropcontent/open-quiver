@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many_attached :photos
+  has_one_attached :photo
   #Watch out for the form !
   has_many :reservations
   has_many :boards
