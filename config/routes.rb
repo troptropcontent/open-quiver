@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :reservations, only: [ :update, :edit ] do
     resources :reviews, only: [ :create ]
   end
+
+  get '/search/category/:category', to: 'boards#filter'
 end
