@@ -1,0 +1,9 @@
+<h1>All our boards</h1>
+<div class="boards">
+<% @boards.each do |board| %>
+  <div class="board">
+    <%= cl_image_tag board.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to "#{board.name}", board_path(board) %>
+  </div>
+<% end %>
+</div>
