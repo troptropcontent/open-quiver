@@ -31,7 +31,7 @@ def scrap_board_from_akewatu(start_page, end_page)
       width: spec.search('span')[1].text.strip[1..-1],
       thickness: spec.search('span')[2].text.strip[1..-1],
       volume: spec.search('span')[3].text.strip,
-      image: image.attribute('style').text.match(/https.*?jpeg/)[0]
+      image: image.attribute('style').text.match(/https.*.+?(?=')/)[0]
       }
       # puts title[0].text.strip
       # puts "length: #{spec.search('span')[0].text.strip}"
@@ -83,7 +83,7 @@ end
 
 
 # itere a travers la list de planche
-boards = scrap_board_from_akewatu(1, 2).first(5)
+boards = scrap_board_from_akewatu(1, 2).first(8)
 boards.each do |board|
   spot = random_spot
   new_board = Board.new(
