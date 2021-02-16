@@ -7,6 +7,7 @@ require 'faker'
 def scrap_board_from_akewatu(start_page, end_page)
 
   url = "https://www.akewatu.fr/surf/planches-de-surf?topProduct=0&pricerange=119%3B2000&zone%5B%5D=#{start_page}&page=#{end_page}"
+  # url = "https://www.akewatu.fr/surf/planches-de-surf?topProduct=0&pricerange=119%3B2000&zone%5B%5D=#{1}&page=#{2}"
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
   cards = html_doc.search('.catalog__result__cart-item')
@@ -14,7 +15,9 @@ def scrap_board_from_akewatu(start_page, end_page)
   cards.each do |card| 
     title = card.search('.title.u-m-t-10.u-p-l-10.u-p-r-10')
     spec = card.search('.specs.u-m-t-10')
-    image = card.at("//div[@itemprop = 'image']").attribute('style').value.match(/https.*?jpeg/)
+    # image = card.at("//div[@itemprop = 'image']").attribute('style').value.match(/https.*?jpeg/)
+    image = card.search('.js-slider__ div')
+
     # [/https.*?jpeg/]
     if title.count == 1 && spec.count == 1
       boards << {
@@ -23,18 +26,17 @@ def scrap_board_from_akewatu(start_page, end_page)
       width: spec.search('span')[1].text.strip[1..-1],
       thickness: spec.search('span')[2].text.strip[1..-1],
       volume: spec.search('span')[3].text.strip,
-      image: image[0]
+      image: image.attribute('style').text.match(/https.*?jpeg/)[0]
       }
-      # puts title[0].text.strip
       # puts "length: #{spec.search('span')[0].text.strip}"
       # puts "width: #{spec.search('span')[1].text.strip[1..-1]}"
       # puts "thickness: #{spec.search('span')[2].text.strip[1..-1]}"
       # puts "volume: #{spec.search('span')[3].text.strip}"
-      # puts "image_url: #{image}"
+      puts 
       # puts "*********************************************"
     end
   end
-  return boards
+  # return boards
 end
 
 # to create new user 
