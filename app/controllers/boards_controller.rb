@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all
+    @boards = policy_scope(Board).order(created_at: :desc)
   end
   
   def new
