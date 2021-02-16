@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+
   devise :omniauthable, omniauth_providers: [:facebook]
-  has_many_attached :photos
+  has_one_attached :photo
+  
   #Watch out for the form !
   has_many :reservations
   has_many :boards
