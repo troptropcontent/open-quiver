@@ -88,7 +88,7 @@ end
 
 
 # itere a travers la list de planche
-boards = scrap_board_from_akewatu(1, 2).first(8)
+boards = scrap_board_from_akewatu(1, 2).first(10)
 boards.each do |board|
   spot = random_spot
   new_board = Board.new(
