@@ -42,7 +42,7 @@ const filterIndex = () => {
   const category = document.getElementById('board_category');
 
 
-  if (category) {
+  if ((category) && (boards)) {
     category.addEventListener("change", (event) => { console.log(event.target.value)
     console.log(event.target.value === "")
     filter(event.target.value)

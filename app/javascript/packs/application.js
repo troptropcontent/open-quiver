@@ -29,8 +29,8 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { filterIndex } from '../plugins/filter_index';
+import { flat } from '../plugins/flatpickr';
 // ****************************\/\/\/\/a remettre demain ca cassait tout mon js\/\/\/\/\/ ******************
-import "../plugins/flatpickr"
 // ****************************/\/\/\/\a remettre demain ca cassait tout mon js/\/\/\/\/\ ******************
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   filterIndex();
-
+  flat();
 
 });
 
