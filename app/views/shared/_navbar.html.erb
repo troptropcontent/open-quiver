@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <%= link_to "boards_path", class: "navbar-brand" do %>
+    🏄🏼‍♂️
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,6 +16,9 @@
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-gradient" <%= link_to "List a board", new_board_path, class: "nav-link" %></a>
         </li>
         <li class="nav-item dropdown">
           <% avatar_url = current_user.facebook_picture_url || "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
