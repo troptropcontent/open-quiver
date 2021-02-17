@@ -8,6 +8,4 @@ class Board < ApplicationRecord
   scope :active, -> { where("status = ?", "active") }
   scope :category, ->(cat) { where("category = ?", cat) }
  
-
-
 end
