@@ -2,6 +2,16 @@ class BoardsController < ApplicationController
   def index
     @boards = policy_scope(Board).order(created_at: :desc)
   end
+  
+  def filter
+    @boards = Board.category(params[:category])
+    authorize @boards
+    array = []
+    @boards.each do |board| 
+      array << board.as_json.merge({"image"=>board.photo.key})
+    end
+    render json: array.to_json
+  end
 
   def show
     @board = Board.find(params[:id])

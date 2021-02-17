@@ -4,4 +4,10 @@ class Board < ApplicationRecord
   belongs_to :user
   validates :category, :inclusion=> { in: CATEGORY}
   has_many :reservations
+
+  scope :active, -> { where("status = ?", "active") }
+  scope :category, ->(cat) { where("category = ?", cat) }
+ 
+
+
 end

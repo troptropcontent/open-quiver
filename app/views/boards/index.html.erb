@@ -1,4 +1,8 @@
 <h1>All our boards</h1>
+<%= simple_form_for(Board.new) do |f| %>
+  <%= f.input :category, collection: Board::CATEGORY %>
+<% end %>
+
 <div class="boards">
 <% @boards.each do |board| %>
   <div class="board">
