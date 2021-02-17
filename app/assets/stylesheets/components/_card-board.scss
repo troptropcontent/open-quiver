@@ -1,28 +1,27 @@
-.card-product {
+.card-board {
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.card-product img {
+.card-board img {
   transform: rotate(90deg);
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-board h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-board p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -30,6 +29,6 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-board .card-board-infos {
   padding: 16px;
 }
