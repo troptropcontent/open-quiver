@@ -4,6 +4,7 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 const listReservations = gon.board_reservations;
 const array = [];
 
+if (listReservations) {
 gon.board_reservations.forEach((reservation) => {
   var hash = {
     from: reservation.start_date,
@@ -11,6 +12,8 @@ gon.board_reservations.forEach((reservation) => {
   };
   array.push(hash)
 })
+
+}
 
 flatpickr("#range_start", {
   altInput: true,

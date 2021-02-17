@@ -1,12 +1,5 @@
 class ReservationsController < ApplicationController
 
-  def new
-    @board = Board.find(params[:board_id])
-    @reservation = Reservation.new
-    authorize @reservation
-    gon.board_reservations = @board.reservations
-  end
-
   def create
     @board = Board.find(params[:board_id])
     @reservation = Reservation.new(reservation_params)
