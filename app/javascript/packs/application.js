@@ -27,6 +27,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
+import { filterIndex } from '../plugins/filter_index';
 // ****************************\/\/\/\/a remettre demain ca cassait tout mon js\/\/\/\/\/ ******************
 // import "../plugins/flatpickr"
 // ****************************/\/\/\/\a remettre demain ca cassait tout mon js/\/\/\/\/\ ******************
@@ -36,34 +38,11 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  filterIndex();
+  
+  
 });
 
-console.log("Hello from app/javascript/packs/application.js!");
-const boards = document.querySelector('.boards')
-const category = document.getElementById('board_category');
-category.addEventListener("change", (event) => { console.log(event.target.value)
-filter(event)
 
 
 
-
-
-});
-
-const update_list = (data) => {
-  boards.innerHTML = '';
-  data.forEach((board) => {
-    boards.insertAdjacentHTML('beforeend', `
-    <div class="board">
-    <img height="300" width="400" src="http://res.cloudinary.com/dn9jutvov/image/upload/c_fill,h_300,w_400/${board.image}">
-    <a href="/boards/${board.id}">${board.name}</a>
-    </div>
-    `);
-  });
-};
-
-const filter = (e) => {
-  fetch(`http://localhost:3000/search/category/${e.target.value}`)
-    .then(response => response.json())
-    .then(data => update_list(data));
-};
