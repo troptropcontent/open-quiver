@@ -3,7 +3,8 @@
     <div class="col-md-8">
       <h1>Add a board to rent</h1>
 
-      <%= simple_form_for @boards do |f| %>
+      <%= simple_form_for @board do |f| %>
+        <%= f.input :name %>
         <%= f.input :name %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>

@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+#home-image img {
+  height: 1000px;
+  padding: 50px;
+}
+
+#text {
+  padding: 50px;
+}
+
+.container-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
