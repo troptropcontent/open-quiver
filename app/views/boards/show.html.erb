@@ -13,7 +13,34 @@
       </ul>
     </div>
   </div>
-  <center><a class="btn btn-ghost" <%= link_to "Back to all boards", boards_path %></a></center>
+
+  <!-- Button trigger modal -->
+  <center><button type="button" class="btn btn-gradient" data-toggle="modal" data-target="#exampleModal">
+    Book a board
+  </button><a class="btn btn-gradient" <%= link_to "Back to all boards", boards_path %></a></center>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Book a board</h5>
+          <button type="btn btn-gradient" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "reservations/new" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 
