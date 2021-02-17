@@ -1,40 +1,22 @@
-<h1>"All our boards" </h1>
-  <div class="container">
-  <%= link_to "All our boards", root_path %>
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <% @boards.each do |boards| %>
-            <tr>
-              <td><%= boards.name %></td>
-              <td><%= boards.description %></td>
-              <td>
-                <%= link_to "Delete board", boards_path(boards), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fa fa-trash destroy_boards"></i>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <%= render "boards/new", boards: @boards %>
+
+<div class="container">
+  <h1><%= @board.name %> </h1>
+
+  <div class="row card-product">
+    <li><%= cl_image_tag @board.photo.key, height: 300, width: 400, crop: :fill %></li>
+    <div class="card-product-infos">
+      <ul>
+        <li>Length : <%= @board.length %></li>
+        <li>Thickness : <%= @board.thickness %></li>
+        <li>Width : <%= @board.width %></li>
+        <li>Volume : <%= @board.volume %></li>
+      </ul>
     </div>
   </div>
-
-  <%# <h3>Reviews</h3>
-  <ul class="list-group">
-      <% @boards.reviews.each do |review| %>
-        <%# <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span class="badge badge-primary badge-pill">
-            <% counter = 0 %>
-            <%# <% 5.times do %>
-               <%# <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' "></i>%>
-               <%# <% counter += 1 %>
-             <%# <% end %>
-           <%# </span>
-          <%= review.content %>
-         <%# </li>
-      <% end %>
-     <%# </ul>
-    <%= render "reviews/new", boards: @boards, review: @review %> 
-
+  <center><a class="btn btn-ghost" <%= link_to "Back to all boards", boards_path %></a></center>
 </div>
+
+
+
+
+
