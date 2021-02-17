@@ -11,8 +11,8 @@ const filterIndex = () => {
       });
       boards.insertAdjacentHTML('beforeend', `
   
-      <div class="card-product">
-      <div class="card-product-infos">
+      <div class="card-board">
+      <div class="card-board-infos">
         <a href="/boards/${board.id}"><h2>${board.name}</h2></a>
         <p>dims : ${board.length} X ${board.width} X ${board.thickness}-${board.volume}</p>
         <p>${board.category}</p>
