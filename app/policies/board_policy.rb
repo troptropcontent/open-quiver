@@ -5,10 +5,14 @@ class BoardPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    return true
+  end
+
   def filter?
     return true
   end
-  
+
   def create?
     return true
   end
