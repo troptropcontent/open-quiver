@@ -1,11 +1,3 @@
-li {
-  list-style: none;
-}
-
-body {
-  font-size: 24px;
-}
-
 .card-dashboard {
   overflow: hidden;
   height: 100%;
@@ -21,13 +13,12 @@ body {
 }
 
 .card-dashboard h2 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 24px;
   margin: 0;
 }
 
 .card-dashboard p {
-  font-size: 24px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -35,6 +26,6 @@ body {
 }
 
 .card-dashboard .card-dashboard-infos {
-  padding: 16px;
+  padding: 1px;
   flex-grow: 1;
 }
