@@ -1,5 +1,9 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @revervations = Reservation.all
+  end
+
   def create
     @board = Board.find(params[:board_id])
     @reservation = Reservation.new(reservation_params)
