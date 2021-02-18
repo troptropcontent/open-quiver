@@ -11,10 +11,17 @@ class ReservationsController < ApplicationController
     @reservation.board = @board
     @reservation.user = current_user
     if @reservation.save
-      redirect_to board_path(@board)
+      redirect_to dashboard_path, alert: "Your reservation has been made successfully!"
     else
       render :new
     end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.destroy
+    redirect_to dashboard_path
   end
 
   private

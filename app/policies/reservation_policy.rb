@@ -13,6 +13,10 @@ class ReservationPolicy < ApplicationPolicy
     return true
   end
 
+  def destroy?
+    return true
+  end
+
   def update?
     record.user == user || admin == true
     # - record: the restaurant passed to the `authorize` method in controller
