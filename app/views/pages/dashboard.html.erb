@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Hello <%= @user.first_name %> !</h1>
+  <br>
+
+  <!-- Here is the list of the ongoing reservations -->
+  <h2>You have <%= @user.reservations.count %> reservation(s) :</h2>
+
+  <ul>
+    <% @user.reservations.each do |reservation| %>
+      <div class="card-dashboard">
+        <%= cl_image_tag reservation.board.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-dashboard-infos">
+          <h2> You have booked <%= reservation.board.name %></h2>
+          <p> from <%= reservation.start_date %> to <%= reservation.end_date %>.</p>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+
+<!-- Here is the list of the ongoing listings -->
+
+  <h2>You have <%= @user.boards.count %> ongoing listing(s) :</h2>
+
+  <ul>
+    <% @user.boards.each do |board| %>
+      <div class="card-dashboard">
+        <%= cl_image_tag board.board.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-dashboard-infos">
+          <h2> You have booked <%= board.board.name %></h2>
+          <p> from <%= board.start_date %> to <%= board.end_date %>.</p>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
