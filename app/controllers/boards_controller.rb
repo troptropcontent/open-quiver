@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   def index
+    @categories = Board::CATEGORIES
     @boards = policy_scope(Board).order(created_at: :desc)
   end
 

@@ -30,6 +30,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { filterIndex } from '../plugins/filter_index';
 import { flat } from '../plugins/flatpickr';
+
 // ****************************\/\/\/\/a remettre demain ca cassait tout mon js\/\/\/\/\/ ******************
 // ****************************/\/\/\/\a remettre demain ca cassait tout mon js/\/\/\/\/\ ******************
 // Internal imports, e.g:
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   filterIndex();
   flat();
+
 
 });
 
