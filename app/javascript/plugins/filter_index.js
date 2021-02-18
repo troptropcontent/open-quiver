@@ -29,6 +29,7 @@ const filterIndex = () => {
 
   const filter = (e) => {
     console.log(e)
+
     console.log(e["board_category"])
     console.log(e["place"])
     console.log(`http://localhost:3000/search?board_category=${e["board_category"]}&place=${e["place"]}`)
@@ -37,7 +38,7 @@ const filterIndex = () => {
       .then(response => response.json())
       .then(data => update_list(data));
   };
-  
+
 
   console.log("Hello from app/javascript/packs/application.js!");
   const volume = document.getElementById("volume") 

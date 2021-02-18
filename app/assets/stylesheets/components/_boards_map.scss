@@ -12,8 +12,13 @@ top: 0;
   flex-grow: 1;
 }
 
-.filter {
-
-display: flex;
-
+.main_container {
+  position: relative;
 }
+
+.sidebar {
+  position: absolute;
+  top: 75px;
+  left: 0;
+}
+

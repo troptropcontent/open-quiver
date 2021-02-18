@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [ :create ]
   end
 
+  resources :reservations, only: [ :destroy ]
+
+  get '/dashboard', to: 'pages#dashboard'
   get '/search/category/:category', to: 'boards#filter'
   get '/search', to: 'boards#filter'
 end

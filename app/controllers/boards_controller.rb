@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   def index
+    @categories = Board::CATEGORIES
     @boards = policy_scope(Board).order(created_at: :desc)
   end
 
@@ -18,6 +19,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @reservation = Reservation.new
+    @review = Review.new
     authorize @reservation
     gon.board_reservations = @board.reservations
     authorize @board
