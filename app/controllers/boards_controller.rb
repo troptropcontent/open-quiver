@@ -5,7 +5,8 @@ class BoardsController < ApplicationController
   end
 
   def filter
-    @boards = params[:category] == nil ? Board.all : Board.category(params[:category])
+    raise
+    @boards = params[:category] == "all" ? Board.all : Board.category(params[:category])
     authorize @boards
     array = []
     @boards.each do |board|
@@ -17,6 +18,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @reservation = Reservation.new
+    @review = Review.new
     authorize @reservation
     gon.board_reservations = @board.reservations
     authorize @board
