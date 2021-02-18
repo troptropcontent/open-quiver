@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'pages#dashboard'
   get '/search/category/:category', to: 'boards#filter'
-  get '/search/category/', to: 'boards#filter'
+  get '/search', to: 'boards#filter'
 end

@@ -123,3 +123,6 @@ end
   # sauvegarder l'user
   #  sauvegarder la planche
   puts "Done SEEDING"
+
+  #https://source.unsplash.com/1600x900/?face
+  

@@ -1,0 +1,33 @@
+
+<section class="mb-4">
+
+  <p class="font-weight-bold mb-3"> Address </p>
+  <%= form_tag boards_path, method: :get, class: "md-form md-outline mt-0" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control mb-0",
+      placeholder: "Enter an address"
+    %>
+    <br>
+    <p class="font-weight-bold mb-3"> Category </p>
+
+      <% @categories.each do |category| %>
+        <%= check_box_tag "categories[]", category  -%>
+        <%= label_tag(category, "#{category}", class: "form-check-label small text-uppercase card-link-secondary") %>
+        <br>
+      <% end %>
+
+    <br>
+    <p class="font-weight-bold mb-3">Price Range</p>
+
+    <div class="slider-price d-flex align-items-center my-4">
+      <span class="font-weight-normal small text-muted mr-2">€0</span>
+        <%= range_field(:price, params[:price], in: 1..100, class: "multi-range multi-range-field w-100 mb-1") %>
+      <span class="font-weight-normal small text-muted ml-2">€100</span>
+    </div>
+
+    <%= submit_tag "Search", class: "btn btn-gradient" %>
+
+  <% end %>
+</section>
+

@@ -1,0 +1,42 @@
+.footer{
+    background-color: rgb(0, 0, 0);
+    width: 0 auto;
+    height: 200px;
+    position:relative;
+    color: grey;
+    text-align: center;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: rgb(1, 255, 255);
+  }
+  
+  .footer li {
+    display: inline-block;
+    padding: 0px 20px;
+  }
+  
+  .list-inline {
+    list-style: none;
+    padding-left: 0px;
+  }
+  
+  .fab{
+    font-size: 32px;
+  }
+  
+  .fas{
+    font-size: 22px;
+    color: red
+  }
+
+  .footer_img img{
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+  }
+
+  
