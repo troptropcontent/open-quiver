@@ -1,9 +1,25 @@
 
 <div class="container">
 <h1>All our boards</h1>
-<%= simple_form_for(Board.new) do |f| %>
-  <%= f.input :category, collection: Board::CATEGORY %>
+
+<div class="filters">
+<%= form_tag boards_path, method: :get do %>
+  <%= select_tag "board_category", options_for_select(Board::CATEGORY) %>
+  <%= text_field_tag :place,
+    params[:place],
+    class: "form-control",
+    placeholder: "Where do you want to surf"
+  %>
+  <%= submit_tag "Let see", class: "btn btn-primary" %>
 <% end %>
+</div>
+  <div>
+  <input type="range" id="volume" name="volume"
+         min="0" max="11">
+  <label for="volume">Volume</label>
+</div>
+
+<div id="showval">0</div>
 
   <div class="content">
     <div class="boards">
