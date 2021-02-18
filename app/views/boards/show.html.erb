@@ -3,7 +3,9 @@
   <h1><%= @board.name %> </h1>
 
   <div class="row card-product">
+    <% if @board.photo.attached? %>
     <li><%= cl_image_tag @board.photo.key, height: 300, width: 400, crop: :fill %></li>
+    <% end %>
     <div class="card-product-infos">
       <ul>
         <li>Length : <%= @board.length %></li>
