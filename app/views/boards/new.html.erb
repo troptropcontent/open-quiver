@@ -1,12 +1,42 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>Add a board to rent</h1>
+<div class="container-new justify-content-center">
+      <div class="center-form">
 
-      <%= simple_form_for @board do |f| %>
-        <%= f.input :name %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+        <h1>Add a board to rent</h1>
+
+        <%= simple_form_for @board do |f| %>
+
+          <%= f.input :name, :placeholder => 'Type here' %>
+        <div class="wrap">
+          <%= f.input :brand, :placeholder => 'ex: Channel Island' %>
+          <%= f.input :category, collection: Board::CATEGORY %>
+        </div>
+
+          <div class="wrap">
+            <%= f.input :length, :placeholder => 'UI: inches' %>
+            <%= f.input :thickness, :placeholder => 'UI: inches' %>
+          </div>
+
+          <div class="wrap">
+            <%= f.input :width, :placeholder => 'UI: inches' %>
+            <%= f.input :volume, :placeholder => 'UI: inches' %>
+          </div>
+
+          <%= f.input :street, :placeholder => "Avenue de l'impératrice" %>
+
+          <div class="wrap">
+            <%= f.input :city, :placeholder => 'Biarritz' %>
+            <%= f.input :zipcode, :placeholder => '64200' %>
+          </div>
+
+          <%= f.input :price, :placeholder => 'Euro' %>
+          <%= f.input :photo, as: :file %>
+
+          <center><%= f.button :submit, class: 'btn btn-primary btn-margin' %></center>
+        <% end %>
     </div>
-  </div>
+    <div id="new-image"> <%= image_tag "new-surf.jpg", alt: "alttext" %> </div>
 </div>
+
+
+
+

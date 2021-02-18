@@ -28,8 +28,10 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    authorize @board
+    @board.user = current_user
     if @board.save
-      redirect_to board_path(@board)
+      redirect_to dashboard_path, alert: "Your listing has been made successfully!"
     else
       render 'new'
     end
@@ -47,6 +49,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
+    authorize @board
     @board.destroy
     redirect_to boards_path
   end
@@ -55,6 +58,6 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:name, :brand, :length, :thickness, :width, :volume, :price,
-    :longitude, :latitude, :status)
+    :city, :zipcode, :street, :photo, :status, :category)
   end
 end

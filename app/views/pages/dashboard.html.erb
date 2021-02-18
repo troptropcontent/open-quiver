@@ -8,7 +8,9 @@
   <ul>
     <% @user.reservations.each do |reservation| %>
       <div class="card-dashboard">
-        <%= cl_image_tag reservation.board.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if board.photo.attached? %>
+        <li><%= cl_image_tag @board.photo.key, height: 300, width: 400, crop: :fill %></li>
+        <% end %>
         <div class="card-dashboard-infos">
           <h2> You have booked <%= reservation.board.name %></h2>
           <p> from <strong><%= reservation.start_date.to_formatted_s(:long_ordinal) %></strong> to <strong><%= reservation.end_date.to_formatted_s(:long_ordinal) %></strong>.</p>
@@ -25,10 +27,14 @@
   <ul>
     <% @user.boards.each do |board| %>
       <div class="card-dashboard">
-        <%= cl_image_tag board.board.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if board.photo.attached? %>
+        <li><%= cl_image_tag board.photo.key, height: 300, width: 400, crop: :fill %></li>
+        <% else %>
+         <li><%= image_tag 'no-image-icon.png', height: 300, width: 400, crop: :fill %></li>
+        <% end %>
         <div class="card-dashboard-infos">
-          <h2> You have booked <%= board.board.name %></h2>
-          <p> from <%= board.start_date.strftime("%M/%D/%Y") %> to <%= board.end_date.strftime %>.</p>
+          <h2> You listed <%= board.name %></h2>
+          <p><%= link_to "Cancel my liting", board_path(board), method: :delete, data: { confirm: "Are you sure?" } %></p>
         </div>
       </div>
     <% end %>
