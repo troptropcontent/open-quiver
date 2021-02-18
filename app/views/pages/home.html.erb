@@ -3,7 +3,14 @@
       <h1>Open Quiver</h1>
       <h2>Rent a board anywhere. Get paid to share yours.</h2>
       <p> The largest & most trusted online marketplace for surfers to rent out and share boards.</p>
-      <a class="btn btn-gradient" <%= link_to "Find your board", boards_path, class: "nav-link" %></a>
+     <%= form_tag boards_path, method: :get do %>
+      <%= text_field_tag :place,
+        params[:place],
+        class: "form-control",
+        placeholder: "Where do you want to surf"
+      %>
+      <%= submit_tag "Let see", class: "btn btn-primary" %>
+    <% end %>
     </div>
     <div id="home-image"> <%= image_tag "https://source.unsplash.com/35muyqODIHA", alt: "alttext" %> </div>
 </div>

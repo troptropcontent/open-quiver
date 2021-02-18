@@ -11,7 +11,8 @@
         <%= cl_image_tag reservation.board.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-dashboard-infos">
           <h2> You have booked <%= reservation.board.name %></h2>
-          <p> from <%= reservation.start_date %> to <%= reservation.end_date %>.</p>
+          <p> from <strong><%= reservation.start_date.to_formatted_s(:long_ordinal) %></strong> to <strong><%= reservation.end_date.to_formatted_s(:long_ordinal) %></strong>.</p>
+          <p><%= link_to "Cancel my reservation", reservation_path(reservation), method: :delete, data: { confirm: "Are you sure?" } %></p>
         </div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Leave a review</button>
 
@@ -49,12 +50,13 @@
         <%= cl_image_tag board.board.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-dashboard-infos">
           <h2> You have booked <%= board.board.name %></h2>
-          <p> from <%= board.start_date %> to <%= board.end_date %>.</p>
+          <p> from <%= board.start_date.strftime("%M/%D/%Y") %> to <%= board.end_date.strftime %>.</p>
         </div>
       </div>
     <% end %>
   </ul>
 </div>
+
 
 <div class="">
   <h1>Reviews : </h1>
@@ -95,3 +97,6 @@
       </div>
   </div>
 </div>
+
+
+

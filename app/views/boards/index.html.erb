@@ -1,14 +1,26 @@
 
-<div class="container">
+<div class="container main_container">
 <h1>All our boards</h1>
-<%= simple_form_for(Board.new) do |f| %>
-  <%= f.input :category, collection: Board::CATEGORY %>
-<% end %>
 
-  <div class="content">
+<div class="filters">
+<%= form_tag boards_path, method: :get do %>
+  <%= select_tag "board_category", options_for_select(Board::CATEGORY) %>
+  <%= text_field_tag :place,
+    params[:place],
+    class: "form-control",
+    placeholder: "Where do you want to surf"
+  %>
+  <%= submit_tag "Let see", class: "btn btn-primary" %>
+<% end %>
+</div>
+
+<br>
+
+  <div class="content" style="margin-left: 250px">
     <div class="boards">
       <% @boards.each do |board| %>
         <div class="board">
+        #injection JS
 
         </div>
       <% end %>
@@ -19,6 +31,12 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+
+
+  <div class="sidebar">
+    <%= render "shared/filter_sidebar" %>
+  </div>
+
 </div>
 
   <br>
@@ -45,3 +63,4 @@
       </div>
   </div>
 </div>
+

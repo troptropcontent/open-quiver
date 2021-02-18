@@ -1,10 +1,13 @@
 class BoardsController < ApplicationController
   def index
+    @categories = Board::CATEGORIES
     @boards = policy_scope(Board).order(created_at: :desc)
   end
 
   def filter
-    @boards = params[:category] == nil ? Board.all : Board.category(params[:category])
+  
+    @boards = params[:board_category] == "all" ? Board.all : Board.category(params[:board_category])
+    @boards = @boards.near(params[:place], 100)  if params[:place]
     authorize @boards
     array = []
     @boards.each do |board|
