@@ -5,10 +5,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    authorize @review
+    @review.reservation_id = params["reservation_id"]
+    @review.user = current_user
     if @review.save!
-      redirect_to review_path(@review)
+      redirect_to dashboard_path
     else
-      render 'new'
+      redirect_to dashboard_path
     end
   end
 
