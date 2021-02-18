@@ -4,7 +4,8 @@ class BoardsController < ApplicationController
   end
 
   def filter
-    @boards = params[:category] == nil ? Board.all : Board.category(params[:category])
+    raise
+    @boards = params[:category] == "all" ? Board.all : Board.category(params[:category])
     authorize @boards
     array = []
     @boards.each do |board|
