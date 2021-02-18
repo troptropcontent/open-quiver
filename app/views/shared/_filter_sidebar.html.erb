@@ -1,4 +1,3 @@
-
 <section class="mb-4">
 
   <p class="font-weight-bold mb-3"> Address </p>
@@ -9,7 +8,7 @@
       placeholder: "Enter an address"
     %>
     <br>
-    <p class="font-weight-bold mb-3"> Category </p>
+    <p class="font-weight-bold mb-3"> Board category </p>
 
       <% @categories.each do |category| %>
         <%= check_box_tag "categories[]", category  -%>
@@ -18,16 +17,48 @@
       <% end %>
 
     <br>
-    <p class="font-weight-bold mb-3">Price Range</p>
 
-    <div class="slider-price d-flex align-items-center my-4">
-      <span class="font-weight-normal small text-muted mr-2">€0</span>
-        <%= range_field(:price, params[:price], in: 1..100, class: "multi-range multi-range-field w-100 mb-1") %>
-      <span class="font-weight-normal small text-muted ml-2">€100</span>
-    </div>
+    <p class="font-weight-bold mb-3"> Price range  </p>
+
+    <%= text_field_tag :price,
+      params[:price],
+      class: "js-range-slider"
+    %>
+
+    <br>
 
     <%= submit_tag "Search", class: "btn btn-gradient" %>
 
   <% end %>
+
 </section>
+
+<script>
+  var $range = $(".js-range-slider");
+
+  $range.ionRangeSlider({
+        skin: "round",
+        type: "double",
+        grid: false,
+        min: 0,
+        max: 50,
+        from: 15,
+        to: 25,
+        prefix: "€"
+    });
+
+</script>
+
+<style>
+  body {
+    margin: 60px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+.range-slider {
+    position: relative;
+    height: 80px;
+}
+</style>
+
 
