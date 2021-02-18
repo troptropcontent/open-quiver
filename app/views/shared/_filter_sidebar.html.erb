@@ -10,13 +10,18 @@
     %>
     <br>
     <p class="font-weight-bold mb-3"> Category </p>
-
-      <% @categories.each do |category| %>
-        <%= check_box_tag "categories[]", category  -%>
+      <div class="all-button">
+      <%= check_box_tag "categories[all]", "all", checked: "checked"  -%>
+        <%= label_tag("all", "all", class: "form-check-label small text-uppercase card-link-secondary") %>
+        <br>
+      </div>
+      <div class="cat-buttons">
+      <% @categories.reject{|cat| cat=="all"}.each do |category| %>
+        <%= check_box_tag "categories[#{category}]", category   -%>
         <%= label_tag(category, "#{category}", class: "form-check-label small text-uppercase card-link-secondary") %>
         <br>
       <% end %>
-
+      </div>
     <br>
     <p class="font-weight-bold mb-3">Price Range</p>
 

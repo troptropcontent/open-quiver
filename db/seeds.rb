@@ -62,7 +62,8 @@ end
 
 
 def random_spot
-  file      = File.open("#{pwd}/db/CARTE SPOTS SURF & SUP FRANCE.xml")
+  # file      = File.open("#{pwd}/db/CARTE SPOTS SURF & SUP FRANCE.xml")
+  file      = File.open("/home/tomecrepont/code/troptropcontent/open-quiver/db/CARTE SPOTS SURF & SUP FRANCE.xml")
   document  = Nokogiri::XML(file)
   spots = []
   spots_list = document.root.xpath('Placemark')
@@ -70,11 +71,11 @@ def random_spot
       loc = spot.xpath('Point').xpath('coordinates').text.strip.split(',').map{|num| num.to_f}
       spots << {
       name: spot.xpath('name').text.strip,
-      latitude: loc[0],
-      longitude: loc[1],
+      longitude: loc[0],
+      latitude: loc[1],
       }
   end
-  return spots.sample
+  return spots.select{|spot| spot[:longitude] < 0}.sample
 end
 
 def board_status
@@ -88,9 +89,22 @@ end
 
 
 # itere a travers la list de planche
-boards = scrap_board_from_akewatu(1, 2).first(10)
+boards = scrap_board_from_akewatu(1, 2)
 boards.each do |board|
   spot = random_spot
+  
+  
+  #  create a new user
+  new_user = User.new
+  new_user.first_name = Faker::Name.first_name
+  new_user.last_name = Faker::Name.last_name
+  new_user.email = Faker::Internet.safe_email(name:"#{new_user.first_name.downcase}#{new_user.last_name.downcase}")
+  new_user.password = Faker::Internet.password(min_length: 10, max_length: 20)
+  new_user.password_confirmation = new_user.password
+  # photo_uri = URI.open('https://api.unsplash.com/search/photos?query=face')
+  photo_uri = URI.open('https://source.unsplash.com/1600x900/?face')
+  new_user.photo.attach(io: photo_uri, filename: "#{new_user.last_name}.png", content_type: 'image/png')
+  new_user.save!
   new_board = Board.new(
   name: board[:name],
   length: board[:length],
@@ -101,21 +115,14 @@ boards.each do |board|
   latitude: spot[:latitude],
   status: board_status,
   category: board[:category],
+  price: 10+rand*40,
+  user: new_user
   )
+  puts new_board.category 
   file = URI.open(board[:image])
   new_board.photo.attach(io: file, filename: "#{Faker::Internet.password}.png", content_type: 'image/png')
-  #  create a new user
-  user = User.new
-  user.first_name = Faker::Name.first_name
-  user.last_name = Faker::Name.last_name
-  user.email = Faker::Internet.safe_email(name:"#{user.first_name.downcase}#{user.last_name.downcase}")
-  user.password = Faker::Internet.password(min_length: 10, max_length: 20)
-  user.password_confirmation = user.password
-  # photo_uri = URI.open('https://api.unsplash.com/search/photos?query=face')
-  photo_uri = URI.open('https://source.unsplash.com/1600x900/?face')
-  user.photo.attach(io: photo_uri, filename: "#{user.last_name}.png", content_type: 'image/png')
-  user.save!
-  new_board.user = user
+
+  # new_board.user = user
   new_board.save!
 end
   # ajouter un spot de surf au hasard

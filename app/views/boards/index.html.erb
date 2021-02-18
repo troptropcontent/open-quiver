@@ -2,17 +2,17 @@
 <div class="container main_container">
 <h1>All our boards</h1>
 
-<div class="filters">
+<%# <div class="filters">
 <%= form_tag boards_path, method: :get do %>
-  <%= select_tag "board_category", options_for_select(Board::CATEGORY) %>
-  <%= text_field_tag :place,
-    params[:place],
-    class: "form-control",
-    placeholder: "Where do you want to surf"
-  %>
-  <%= submit_tag "Let see", class: "btn btn-primary" %>
-<% end %>
-</div>
+  <%# <%= select_tag "board_category", options_for_select(Board::CATEGORY) %>
+  <%# <%= text_field_tag :place, %>
+    <%# params[:place], %>
+    <%# class: "form-control", %>
+    <%# placeholder: "Where do you want to surf" %>
+  <%# %>
+  <%# <%= submit_tag "Let see", class: "btn btn-primary" %> 
+<%# <% end %> 
+<%# </div> %> 
 
 <br>
 
@@ -41,26 +41,4 @@
 
   <br>
 
-<div class="footer">
-  <div class="list-inline">
-    <ul>
-      <li>
-        <a href=""><i class="fab fa-twitter"></i></a>
-      </li>
-      <li>
-        <a href="" ><i class="fab fa-instagram"></i></a>
-      </li>
-      <li>
-        <a href=""><i class="fab fa-facebook"></i></a>
-      </li>
-      <li>
-        <a href=""><i class="fab fa-github"></i></a>
-      </li>
-    </ul>
-      <div class="footer_img">
-        <p>This website was coded by smart developper at Le Wagon.</p>
-        <img alt="Le Wagon Logo" src="//d26jy9fbi4q9wx.cloudfront.net/assets/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a61b92848057aab506.svg">
-      </div>
-  </div>
-</div>
 
