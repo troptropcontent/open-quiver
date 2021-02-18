@@ -112,7 +112,7 @@ boards.each do |board|
   user.password = Faker::Internet.password(min_length: 10, max_length: 20)
   user.password_confirmation = user.password
   # photo_uri = URI.open('https://api.unsplash.com/search/photos?query=face')
-  photo_uri = URI.open('https://source.unsplash.com/1600x900/?face')
+  photo_uri = URI.open('https://images.unsplash.com/photo-1613507346182-fc34a2ca11a5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600')
   user.photo.attach(io: photo_uri, filename: "#{user.last_name}.png", content_type: 'image/png')
   user.save!
   new_board.user = user
@@ -123,3 +123,6 @@ end
   # sauvegarder l'user
   #  sauvegarder la planche
   puts "Done SEEDING"
+
+  #https://source.unsplash.com/1600x900/?face
+  

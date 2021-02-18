@@ -16,6 +16,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @reservation = Reservation.new
+    @review = Review.new
     authorize @reservation
     gon.board_reservations = @board.reservations
     authorize @board
