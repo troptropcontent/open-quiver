@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @review = Review.new
+    @reviews = @user.reviews
   end
 end

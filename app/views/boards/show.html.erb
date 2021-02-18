@@ -38,47 +38,31 @@
       </div>
     </div>
   </div>
-
-    <h3>Review</h3>
-   <ul class="list-group">
-      <% @board.reviews.each do |review| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span class="badge badge-primary badge-pill">
-            <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>          
-          </span>
-          <%= review.content %>
-        </li>
-      <% end %>
-    </ul>
-
-
-  <div class="footer">
-    <div class="list-inline">
-      <ul>
-        <li>
-          <a href=""><i class="fab fa-twitter"></i></a>
-        </li>
-        <li>
-          <a href="" ><i class="fab fa-instagram"></i></a>
-        </li>
-        <li>
-          <a href=""><i class="fab fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href=""><i class="fab fa-github"></i></a>
-        </li>
-      </ul>
-      <p>This website was coded by smart developper at Le Wagon. <i class="fas fa-mobile-alt"></i></p>
-    </div>
-  </div>
-
 </div>
 
 
-<!-- <% counter = 0 %>
-            <% 5.times do %>
-              <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-              <% counter += 1 %>
-            <% end %>-->
+<div class="footer">
+<div class="list-inline">
+  <ul>
+    <li>
+      <a href=""><i class="fab fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="" ><i class="fab fa-instagram"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fab fa-facebook"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fab fa-github"></i></a>
+    </li>
+  </ul>
+    <div class="footer_img">
+      <p>This website was coded by smart developper at Le Wagon. <i class="fas fa-laptop-code"></i></p>
+      <img alt="Le Wagon Logo" src="//d26jy9fbi4q9wx.cloudfront.net/assets/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a61b92848057aab506.svg">
+    </div>
+</div>
+
+
 
 
