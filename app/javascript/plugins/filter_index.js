@@ -29,7 +29,7 @@ const filterIndex = () => {
 
   const filter = (e) => {
     console.log(e)
-    fetch(`https://open-quiver.herokuapp.com//search/category/${e}`)
+    fetch(`http://localhost:3000/search/category/${e}`)
     
       .then(response => response.json())
       .then(data => update_list(data));

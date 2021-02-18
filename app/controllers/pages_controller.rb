@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @review = Review.new
   end
 
   def destroy

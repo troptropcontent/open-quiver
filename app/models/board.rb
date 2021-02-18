@@ -8,6 +8,7 @@ class Board < ApplicationRecord
   belongs_to :user
   validates :category, :inclusion=> { in: CATEGORY}
   has_many :reservations
+  has_many :reviews, through: :reservations
 
   scope :active, -> { where("status = ?", "active") }
   scope :category, ->(cat) { where("category = ?", cat) }
