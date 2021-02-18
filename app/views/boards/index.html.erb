@@ -1,14 +1,14 @@
 
-<div class="container">
+<div class="container main_container">
 <h1>All our boards</h1>
-<%= simple_form_for(Board.new) do |f| %>
-  <%= f.input :category, collection: Board::CATEGORY %>
-<% end %>
 
-  <div class="content">
+<br>
+
+  <div class="content" style="margin-left: 250px">
     <div class="boards">
       <% @boards.each do |board| %>
         <div class="board">
+        #injection JS
 
         </div>
       <% end %>
@@ -19,6 +19,12 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+
+
+  <div class="sidebar">
+    <%= render "shared/filter_sidebar" %>
+  </div>
+
 </div>
 
   <br>
@@ -45,3 +51,4 @@
       </div>
   </div>
 </div>
+

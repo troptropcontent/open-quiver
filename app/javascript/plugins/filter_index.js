@@ -30,11 +30,11 @@ const filterIndex = () => {
   const filter = (e) => {
     console.log(e)
     fetch(`http://localhost:3000/search/category/${e}`)
-    
+
       .then(response => response.json())
       .then(data => update_list(data));
   };
-  
+
 
   console.log("Hello from app/javascript/packs/application.js!");
   filter("");

@@ -1,4 +1,5 @@
 class Board < ApplicationRecord
+
   CATEGORY = ["all","shortboard", "hybride", "longboard", "fish", "egg", "enfant", "stand up paddle", "mini malibu", "évolutive", "gun", "foil", "planche en mousse", "mid-length", "évolutive / hybride", "deco", "vintage", "retro"]
   # GEOVODER SET UP
   geocoded_by :full_address
@@ -6,7 +7,7 @@ class Board < ApplicationRecord
 
   has_one_attached :photo
   belongs_to :user
-  validates :category, :inclusion=> { in: CATEGORY}
+  validates :category, :inclusion=> { in: CATEGORIES}
   has_many :reservations
   has_many :reviews, through: :reservations
 

@@ -11,3 +11,13 @@ top: 0;
 .boards {
   flex-grow: 1;
 }
+
+.main_container {
+  position: relative;
+}
+
+.sidebar {
+  position: absolute;
+  top: 75px;
+  left: 0;
+}
