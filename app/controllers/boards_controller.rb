@@ -1,11 +1,11 @@
 class BoardsController < ApplicationController
   def index
-    @categories = Board::CATEGORIES
+    @categories = Board::CATEGORY
     @boards = policy_scope(Board).order(created_at: :desc)
   end
 
   def filter
-  
+
     @boards = params[:board_category] == "all" ? Board.all : Board.category(params[:board_category])
     @boards = @boards.near(params[:place], 100)  if params[:place]
     authorize @boards
@@ -55,7 +55,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     authorize @board
     @board.destroy
-    redirect_to boards_path
+    redirect_to dashboard_path
   end
 
   private
