@@ -20,7 +20,20 @@
     <div class="boards">
       <% @boards.each do |board| %>
         <div class="board">
-        #injection JS
+
+      <div class="card-board">
+        <div class="card-board-infos">
+          <div class="card-board-infos-top">
+            <a href="/boards/${board.id}"><h2>${board.name}</h2></a>
+            <p>dims : ${board.length} X ${board.width} X ${board.thickness}-${board.volume}</p>
+          </div>
+          <div class="card-board-infos-top">
+            <p>${board.category}</p>
+            <p>${board.price}</p>
+          </div>
+        </div>
+        <img src="http://res.cloudinary.com/dn9jutvov/image/upload/${board.image}" />
+      </div>
 
         </div>
       <% end %>

@@ -10,15 +10,18 @@ const filterIndex = () => {
         lng: board.longitude,
       });
       boards.insertAdjacentHTML('beforeend', `
-
       <div class="card-board">
-      <div class="card-board-infos">
-
-        <a href="/boards/${board.id}"><h2>${board.name}</h2></a>
-        <p>dims : ${board.length} X ${board.width} X ${board.thickness}-${board.volume}</p>
-        <p>${board.category}</p>
-      </div>
-      <img src="http://res.cloudinary.com/dn9jutvov/image/upload/${board.image}" />
+        <div class="card-board-infos">
+          <div class="card-board-infos-top">
+            <a href="/boards/${board.id}"><h2>${board.name}</h2></a>
+            <p>dims : ${board.length} X ${board.width} X ${board.thickness}-${board.volume}</p>
+          </div>
+          <div class="card-board-infos-bottom">
+            <p>${board.category.split('/')[0]}</p>
+            <p>${Math.round(board.price * 100) / 100} € / kiff </p>
+          </div>
+        </div>
+        <img src="http://res.cloudinary.com/dn9jutvov/image/upload/${board.image}" />
       </div>
       `);
     });
