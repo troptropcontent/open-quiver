@@ -1,0 +1,26 @@
+.encadreur {
+    width: 150px;
+    color: white;
+    text-align: center;
+  }
+
+  .btn_blue {
+    font-size: large;
+    background-color: rgb(15, 84, 233);
+    color: white;
+    border: 2px solid rgb(15, 84, 233);
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.8;
+  }
+
+  .container_log_in {
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .form-inputs {
+      width: 500px;
+  }
