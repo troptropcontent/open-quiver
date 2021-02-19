@@ -1,40 +1,32 @@
-<div class="container-home">
-    <div id="text">
-      <h1>Open Quiver</h1>
-      <h2>Rent a board anywhere. Get paid to share yours.</h2>
-      <p> The largest & most trusted online marketplace for surfers to rent out and share boards.</p>
-     <%= form_tag boards_path, method: :get do %>
-      <%= text_field_tag :place,
-        params[:place],
-        class: "form-control",
-        placeholder: "Where do you want to surf"
-      %>
-      <%= submit_tag "Let see", class: "btn btn-primary" %>
-    <% end %>
-    </div>
-    <div id="home-image"> <%= image_tag "https://source.unsplash.com/35muyqODIHA", alt: "alttext" %> </div>
-</div>
-
-
-<div class="footer">
-  <div class="list-inline">
-    <ul>
-      <li>
-        <a href=""><i class="fab fa-twitter"></i></a>
-      </li>
-      <li>
-        <a href="" ><i class="fab fa-instagram"></i></a>
-      </li>
-      <li>
-        <a href=""><i class="fab fa-facebook"></i></a>
-      </li>
-      <li>
-        <a href=""><i class="fab fa-github"></i></a>
-      </li>
-    </ul>
-      <div class="footer_img">
-        <p>This website was coded by smart developper at Le Wagon. <i class="fas fa-laptop-code"></i></p>
-        <img alt="Le Wagon Logo" src="//d26jy9fbi4q9wx.cloudfront.net/assets/logo_square-2a2b37a2be341690cc27951815247ac550d17e57b97542a61b92848057aab506.svg">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container-home">
+    <div class="style_home">
+      <div id="text">
+        <h1>Open Quiver</h1>
+        <h2>Rent a board anywhere. Get paid to share yours.</h2>
+        <p> The largest & most trusted online marketplace for surfers to rent out and share boards.</p>
+      <%= form_tag boards_path, method: :get do %>
+        <%= text_field_tag :place,
+          params[:place],
+          class: "form-control",
+          placeholder: "Where do you want to surf"
+        %>
+        <%= submit_tag "Let see", class: "btn btn-primary" %>
+      <% end %>
       </div>
+    <div id="home-image"> <%= image_tag "https://source.unsplash.com/35muyqODIHA", alt: "alttext" %> </div>
+    </div>
   </div>
-</div>
+
+  
+</body>
+</html>
