@@ -4,7 +4,7 @@
       <h2>Rent a board anywhere. Get paid to share yours.</h2>
       <p> The largest & most trusted online marketplace for surfers to rent out and share boards.</p>
      <%= form_tag boards_path, method: :get do %>
-      <%= text_field_tag :place,
+      <%= text_field_tag :query,
         params[:place],
         class: "form-control",
         placeholder: "Where do you want to surf"
