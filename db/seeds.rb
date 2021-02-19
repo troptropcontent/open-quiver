@@ -98,7 +98,7 @@ boards.each do |board|
   new_user.first_name = Faker::Name.first_name
   new_user.last_name = Faker::Name.last_name
   new_user.email = Faker::Internet.safe_email(name:"#{new_user.first_name.downcase}#{new_user.last_name.downcase}")
-  new_user.password = Faker::Internet.password(min_length: 10, max_length: 20)
+  new_user.password = 'testpassword123456'
   new_user.password_confirmation = new_user.password
   # photo_uri = URI.open('https://api.unsplash.com/search/photos?query=face')
   photo_uri = URI.open('https://source.unsplash.com/1600x900/?face')
