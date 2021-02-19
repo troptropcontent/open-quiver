@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Hello <%= @user.first_name %> !</h1>
   <br>
-
+  
   <!-- Here is the list of the ongoing reservations -->
   <h2>You have <%= @user.reservations.count %> reservation(s) :</h2>
 
@@ -71,8 +71,9 @@
             <p><%= link_to "Cancel my listing", board_path(board), method: :delete, remote: true, data: { confirm: "Are you sure?" } %></p>
           </div>
         </div>
+         </ul>
       <% end %>
-    </ul>
+  <% end %>
 
     <h2>Reviews : </h2>
 
@@ -91,9 +92,15 @@
         </div>
       <% end %>
 
-
-    </div>
-  <% end %>
+      </div>
+  
 </div>
+
+    <div class="card-dashboard-cheat">
+ 
+    </div>
+
+
+    
 
 

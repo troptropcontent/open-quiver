@@ -52,25 +52,31 @@ const filterIndex = () => {
   console.log("boards uploaded.")
 
   const submit_button = document.querySelector('.btn.btn-gradient')
-  submit_button.addEventListener("click", (event)=>{
-    event.preventDefault();
-    filter(generateQuery());
 
-  });
+  if (submit_button) {
+    submit_button.addEventListener("click", (event)=>{
+      event.preventDefault();
+      filter(generateQuery());
+  
+    });
+  }
+
   const check_boxes = document.querySelectorAll('.cat-buttons > input,.all-button > input')
   
   const cat_checkboxes = document.querySelectorAll('.cat-buttons > input') 
 
   const all_cat_checkboxes = document.querySelector('.all-button > input') 
 
-  all_cat_checkboxes.addEventListener("change",(event)=>{
+  if (all_cat_checkboxes) {
+    all_cat_checkboxes.addEventListener("change",(event)=>{
 
-    console.log(event.target.checked);
-    if (event.target.checked) {
-      cat_checkboxes.forEach(check_box => {check_box.checked = false});
-    }
-    filter(generateQuery());
-  });
+      console.log(event.target.checked);
+      if (event.target.checked) {
+        cat_checkboxes.forEach(check_box => {check_box.checked = false});
+      }
+      filter(generateQuery());
+    });
+  }
 
   cat_checkboxes.forEach((checkBox)=>{
 
@@ -107,7 +113,9 @@ const filterIndex = () => {
     
   });
   ;
+ if (all_cat_checkboxes) {
   filter(generateQuery());
+ }
 
   if ((category) && (boards)) {
     category.addEventListener("change", (event) => { console.log(event.target.value)
