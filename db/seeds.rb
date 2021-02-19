@@ -62,8 +62,7 @@ end
 
 
 def random_spot
-  # file      = File.open("#{pwd}/db/CARTE SPOTS SURF & SUP FRANCE.xml")
-  file      = File.open("/home/tomecrepont/code/troptropcontent/open-quiver/db/CARTE SPOTS SURF & SUP FRANCE.xml")
+  file      = File.open("#{pwd}/db/CARTE SPOTS SURF & SUP FRANCE.xml")
   document  = Nokogiri::XML(file)
   spots = []
   spots_list = document.root.xpath('Placemark')
@@ -92,8 +91,8 @@ end
 boards = scrap_board_from_akewatu(1, 2)
 boards.each do |board|
   spot = random_spot
-  
-  
+
+
   #  create a new user
   new_user = User.new
   new_user.first_name = Faker::Name.first_name
@@ -118,7 +117,7 @@ boards.each do |board|
   price: 10+rand*40,
   user: new_user
   )
-  puts new_board.category 
+  puts new_board.category
   file = URI.open(board[:image])
   new_board.photo.attach(io: file, filename: "#{Faker::Internet.password}.png", content_type: 'image/png')
 
@@ -132,4 +131,3 @@ end
   puts "Done SEEDING"
 
   #https://source.unsplash.com/1600x900/?face
-  
