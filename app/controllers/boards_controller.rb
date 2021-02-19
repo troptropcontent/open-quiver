@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
   end
 
   def filter
-    
+  
     @boards = params[:board_category] == "all" ? Board.all : Board.select_categories(params[:board_category].split(','))
     @boards = @boards.near(params[:place], 100)  if params[:place]
     authorize @boards
