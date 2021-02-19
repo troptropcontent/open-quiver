@@ -1,4 +1,3 @@
-
 <section class="mb-4">
 
   <p class="font-weight-bold mb-3"> Address </p>
@@ -9,25 +8,64 @@
       placeholder: "Enter an address"
     %>
     <br>
-    <p class="font-weight-bold mb-3"> Category </p>
 
-      <% @categories.each do |category| %>
-        <%= check_box_tag "categories[]", category  -%>
+    <p class="font-weight-bold mb-3"> Category </p>
+      <div class="all-button">
+      <%= check_box_tag "categories[all]", "all", checked: "checked"  -%>
+        <%= label_tag("all", "all", class: "form-check-label small text-uppercase card-link-secondary") %>
+        <br>
+      </div>
+      <div class="cat-buttons">
+      <% @categories.reject{|cat| cat=="all"}.each do |category| %>
+        <%= check_box_tag "categories[#{category}]", category   -%>
+
         <%= label_tag(category, "#{category}", class: "form-check-label small text-uppercase card-link-secondary") %>
         <br>
       <% end %>
+      </div>
+    <br>
+
+    <p class="font-weight-bold mb-3"> Price range  </p>
+
+    <%= text_field_tag :price,
+      params[:price],
+      class: "js-range-slider"
+    %>
 
     <br>
-    <p class="font-weight-bold mb-3">Price Range</p>
-
-    <div class="slider-price d-flex align-items-center my-4">
-      <span class="font-weight-normal small text-muted mr-2">€0</span>
-        <%= range_field(:price, params[:price], in: 1..100, class: "multi-range multi-range-field w-100 mb-1") %>
-      <span class="font-weight-normal small text-muted ml-2">€100</span>
-    </div>
 
     <%= submit_tag "Search", class: "btn btn-gradient" %>
 
   <% end %>
+
 </section>
+
+<script>
+  var $range = $(".js-range-slider");
+
+  $range.ionRangeSlider({
+        skin: "round",
+        type: "double",
+        grid: false,
+        min: 0,
+        max: 50,
+        from: 15,
+        to: 25,
+        prefix: "€"
+    });
+
+</script>
+
+<style>
+  body {
+    margin: 60px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+.range-slider {
+    position: relative;
+    height: 80px;
+}
+</style>
+
 
