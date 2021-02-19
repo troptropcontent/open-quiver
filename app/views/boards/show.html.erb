@@ -1,4 +1,3 @@
-
 <div class="container">
   <h1><%= @board.name %> </h1>
 
@@ -37,6 +36,22 @@
         </div>
       </div>
     </div>
+  </div>
+<div class="container-review">
+  <h1>Board's Review : </h1>
+
+    <% @board.reviews.each do |review| %>
+      <div class="review_card">
+        <div class="card-review-infos">
+          <ul>
+            <li><div><%= review.user.first_name %></div></li>
+            <li><div> <strong>Rating : <%= review.rating %></strong></div></li>
+            <li><div> <%= review.content %></div></li>
+            <li><div><p>Created : <%= review.created_at.to_formatted_s(:long_ordinal) %></p></div></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

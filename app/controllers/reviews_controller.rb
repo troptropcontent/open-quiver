@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def index
+    @rating = Review::RATING
     @reviews = Review.all
   end
 
@@ -15,9 +16,16 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    authorize @review
+    @review.destroy
+    redirect_to dashboard_path
+  end
+
   def review_params
     puts 'inside params'
-    params.require(:review).permit(:name)
+    params.require(:review).permit(:name, :rating, :content)
   end
 
 end

@@ -18,12 +18,12 @@ class Board < ApplicationRecord
   scope :active, -> { where("status = ?", "active") }
 
   scope :select_categories, ->(arr) {where('category IN (?)', arr)}
- 
+
 
 
   def full_address
     "#{street}, #{zipcode}, #{city}, #{country}"
   end
-  
+
 end
 

@@ -39,7 +39,6 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
@@ -74,27 +73,28 @@
         </div>
       <% end %>
     </ul>
-    <div class="">
-      <h2>Reviews : </h2>
+
+    <h2>Reviews : </h2>
 
       <% @reviews.each do |review| %>
-          <div class="review_card">
-      <ul>
-        <li><div class="review_user"><%= @user.first_name %></div></li>
-        <li><div class="review_content"> Content : <%= review.content %></div></li>
-        <li><div class="review_content"> Content : <%= review.content %></div></li>
-        <li><div class="review_rating"> Rating : <%= review.rating %></div></li>
-        <li><div class="review_created_at"><%= review.created_at %></div></li>
-      </ul>
-      </div>
+        <div class="review_card">
+          <div class="card-dashboard-infos">
+            <ul>
+              <li><div><%= @user.first_name %></div></li>
+              <li><div><%= review.reservation.board.name %></div></li>
+              <li><div> <strong>Rating : <%= review.rating %></strong></div></li>
+              <li><div> <%= review.content %></div></li>
+              <li><div><p>Created : <%= review.created_at.to_formatted_s(:long_ordinal) %></p></div></li>
+            </ul>
+          </div>
+          <p> <%= link_to "Delete Review", review_path(review), method: :delete, remote: true, data: { confirm: "Are you sure?" } %></p>
+        </div>
       <% end %>
 
 
     </div>
   <% end %>
 </div>
-
-<%= console %>
 
 
 <div class="footer">
