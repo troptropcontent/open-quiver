@@ -1,11 +1,13 @@
 class BoardsController < ApplicationController
   def index
-    @categories = Board::CATEGORIES
+    @categories = Board::CATEGORY
     @boards = policy_scope(Board).order(created_at: :desc)
   end
 
   def filter
-    @boards = params[:category] == nil ? Board.all : Board.category(params[:category])
+    
+    @boards = params[:board_category] == "all" ? Board.all : Board.select_categories(params[:board_category].split(','))
+    @boards = @boards.near(params[:place], 100)  if params[:place]
     authorize @boards
     array = []
     @boards.each do |board|
@@ -17,6 +19,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @reservation = Reservation.new
+    @review = Review.new
     authorize @reservation
     gon.board_reservations = @board.reservations
     authorize @board
@@ -29,8 +32,10 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    authorize @board
+    @board.user = current_user
     if @board.save
-      redirect_to board_path(@board)
+      redirect_to dashboard_path, alert: "Your listing has been made successfully!"
     else
       render 'new'
     end
@@ -48,6 +53,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
+    authorize @board
     @board.destroy
     redirect_to boards_path
   end
@@ -56,6 +62,6 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:name, :brand, :length, :thickness, :width, :volume, :price,
-    :longitude, :latitude, :status)
+    :city, :zipcode, :street, :photo, :status, :category)
   end
 end

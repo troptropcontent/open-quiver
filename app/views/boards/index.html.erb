@@ -2,6 +2,18 @@
 <div class="container main_container">
 <h1>All our boards</h1>
 
+<%# <div class="filters">
+<%= form_tag boards_path, method: :get do %>
+  <%# <%= select_tag "board_category", options_for_select(Board::CATEGORY) %>
+  <%# <%= text_field_tag :place, %>
+    <%# params[:place], %>
+    <%# class: "form-control", %>
+    <%# placeholder: "Where do you want to surf" %>
+  <%# %>
+  <%# <%= submit_tag "Let see", class: "btn btn-primary" %> 
+<%# <% end %> 
+<%# </div> %> 
+
 <br>
 
   <div class="content" style="margin-left: 250px">
@@ -20,6 +32,13 @@
     </div>
   </div>
 
+
   <div class="sidebar">
     <%= render "shared/filter_sidebar" %>
   </div>
+
+</div>
+
+  <br>
+
+

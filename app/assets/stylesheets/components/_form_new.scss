@@ -1,0 +1,52 @@
+.container-new {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 40px;
+  margin: 0px 20vw;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 18px;
+    img {
+  padding: 50px;
+  width: 30vw;
+  justify-content-center: center;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  /* For a screen < 720px, this CSS will be read */
+  .container-new {
+    flex-direction: column;
+    img {
+      padding: 50px;
+      width: 100%;
+      justify-content-center: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+
+.container-new h1 {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #167FFB;
+}
+
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-form {
+  justify-content: center;
+}
+
+.btn-margin {
+  margin: 10px 0px;
+}

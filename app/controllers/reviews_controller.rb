@@ -4,16 +4,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @reviews = Review.new(reviews_params)
-    if @reviews.save
-      redirect_to reviews_path(@reviews)
+    @review = Review.new(review_params)
+    authorize @review
+    @review.reservation_id = params["reservation_id"]
+    @review.user = current_user
+    if @review.save!
+      redirect_to dashboard_path
     else
-      render 'new'
+      redirect_to dashboard_path
     end
   end
 
-  def reviews_params
-    params.require(:reviews).permit(:name)
+  def review_params
+    puts 'inside params'
+    params.require(:review).permit(:name)
   end
 
 end
