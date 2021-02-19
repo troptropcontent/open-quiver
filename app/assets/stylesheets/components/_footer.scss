@@ -6,6 +6,7 @@
     color: grey;
     text-align: center;
     padding: 20px;
+    margin-top: 15px;
   }
   
   a {
@@ -13,7 +14,7 @@
     color: rgb(1, 255, 255);
   }
   
-  li {
+  .footer li {
     display: inline-block;
     padding: 0px 20px;
   }
@@ -29,7 +30,7 @@
   
   .fas{
     font-size: 22px;
-    color: rgb(0, 255, 65);
+    color: red
   }
 
   .footer_img img{
