@@ -1,33 +1,16 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div class="container-home">
-    <div class="style_home">
-      <div id="text">
-        <h1>Open Quiver</h1>
-        <h2>Rent a board anywhere. Get paid to share yours.</h2>
-        <p> The largest & most trusted online marketplace for surfers to rent out and share boards.</p>
-      <%= form_tag boards_path, method: :get do %>
-        <%= text_field_tag :place,
-          params[:place],
-          class: "form-control",
-          placeholder: "Where do you want to surf"
-        %>
-        <%= submit_tag "Let see", class: "btn btn-primary" %>
-      <% end %>
-      </div>
-    <div id="home-image"> <%= image_tag "https://source.unsplash.com/35muyqODIHA", alt: "alttext" %> </div>
+<div class="container-home">
+    <div id="text">
+      <h1>Open Quiver</h1><br>
+      <h2>Rent a board anywhere. Get paid to share yours.</h2><br>
+      <p> The largest & most trusted online marketplace for surfers to rent out and share boards.</p>
+     <%= form_tag boards_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:place],
+        class: "form-control",
+        placeholder: "Where do you want to surf"
+      %> <br>
+      <center><%= submit_tag "Let see", class: "btn_blue" %></center>
+    <% end %>
     </div>
-  </div>
-
-  
-</body>
-</html>
+    <div id="home-image"> <%= image_tag "https://source.unsplash.com/35muyqODIHA", alt: "alttext" %> </div>
+</div>

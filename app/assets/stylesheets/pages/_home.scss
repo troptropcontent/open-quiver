@@ -14,3 +14,36 @@
   align-items: center;
   margin: 10px;
 }
+
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 64px;
+}
+
+h2 {
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 32px;
+}
+
+p {
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 18px;
+}
+
+.btn_blue {
+  font-size: large;
+  background-color: rgb(15, 84, 233);
+  color: white;
+  border: 2px solid rgb(15, 84, 233);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+}
+
+.btn_blue:hover {
+  background-color: white;
+  color: rgb(15, 84, 233);
+  border: 2px solid rgb(15, 84, 233);
+
+}
