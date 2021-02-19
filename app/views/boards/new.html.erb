@@ -6,10 +6,10 @@
         <%= simple_form_for @board do |f| %>
 
           <%= f.input :name, :placeholder => 'Type here' %>
-        <div class="wrap">
-          <%= f.input :brand, :placeholder => 'ex: Channel Island' %>
-          <%= f.input :category, collection: Board::CATEGORY %>
-        </div>
+          <div class="wrap">
+            <%= f.input :brand, :placeholder => 'ex: Channel Island' %>
+            <%= f.input :category, collection: Board::CATEGORY %>
+          </div>
 
           <div class="wrap">
             <%= f.input :length, :placeholder => 'UI: inches' %>
@@ -18,7 +18,7 @@
 
           <div class="wrap">
             <%= f.input :width, :placeholder => 'UI: inches' %>
-            <%= f.input :volume, :placeholder => 'UI: inches' %>
+            <%= f.input :volume, :placeholder => 'UI: L' %>
           </div>
 
           <%= f.input :street, :placeholder => "Avenue de l'impératrice" %>
