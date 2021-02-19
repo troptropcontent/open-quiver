@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   margin: 30px;
+  padding: 20px;
 }
 
 .card-dashboard img {
@@ -26,6 +27,27 @@
 }
 
 .card-dashboard .card-dashboard-infos {
-  padding: 20px;
+  padding: 15px;
   flex-grow: 1;
+}
+
+.card-dashboard-blank {
+  overflow: hidden;
+  height: 100%;
+  text-align: center;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  height: 100%;
+  margin: 30px;
+  margin-left: 70px;
+  padding: 20px;
+}
+
+.card-dashboard-blank h2 {
+  font-size: 24px;
+}
+
+.card-dashboard-blank p {
+  font-size: 16px;
 }
