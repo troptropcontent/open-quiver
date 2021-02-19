@@ -1,6 +1,6 @@
 .card-board {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -11,8 +11,8 @@
 .card-board img {
   transform: rotate(90deg);
   height: 100%;
-  width: 120px;
-  object-fit: cover;
+  width: 40%;
+  object-fit: contain;
 }
 
 .card-board h2 {
@@ -31,4 +31,27 @@
 
 .card-board .card-board-infos {
   padding: 16px;
+}
+
+.card-board-infos {
+  width: 60%;
+
+}
+
+.card-board-infos-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+  background-color: rgba(22, 135, 167, 0.7);
+  color: aliceblue;
+  padding: 5px;
+  border-radius: 10%;
+  }
+}
+
+.card-board-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
