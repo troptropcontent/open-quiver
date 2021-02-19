@@ -34,8 +34,8 @@ const filterIndex = () => {
     console.log(e)
     console.log(e["board_categories"])
     console.log(e["place"])
-    console.log(`http://localhost:3000/search?board_category=${e["board_categories"]}&place=${e["place"]}`)
-    fetch(`http://localhost:3000/search?board_category=${e["board_categories"]}&place=${e["place"]}`)
+    console.log(`https://open-quiver.herokuapp.com/search?board_category=${e["board_categories"]}&place=${e["place"]}`)
+    fetch(`https://open-quiver.herokuapp.com//search?board_category=${e["board_categories"]}&place=${e["place"]}`)
     
       .then(response => response.json())
       .then(data => update_list(data));
